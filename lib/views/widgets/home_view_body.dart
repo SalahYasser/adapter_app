@@ -1,3 +1,4 @@
+import 'package:adapter_app/views/widgets/custom_list_tablet.dart';
 import 'package:adapter_app/views/widgets/custom_sliver_grid.dart';
 import 'package:adapter_app/views/widgets/custom_sliver_list_view.dart';
 import 'package:flutter/material.dart';
@@ -7,15 +8,25 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(height: 16),
           ),
-          CustomSliverGrid(),
-          CustomSliverListView(),
+          SliverToBoxAdapter(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth > 500) {
+                  return const CustomListTablet();
+                } else {
+                  return const CustomSliverGrid();
+                }
+              },
+            ),
+          ),
+          const CustomSliverListView(),
         ],
       ),
     );
