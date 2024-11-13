@@ -1,3 +1,4 @@
+import 'package:adapter_app/functions/build_app_bar.dart';
 import 'package:adapter_app/views/widgets/custom_drawer.dart';
 import 'package:adapter_app/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
@@ -18,18 +19,7 @@ class _HomeViewState extends State<HomeView> {
       key: scaffoldKey,
       drawer: const CustomDrawer(),
       backgroundColor: const Color(0xffDBDBDB),
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        leading: GestureDetector(
-          onTap: () {
-            scaffoldKey.currentState!.openDrawer();
-          },
-          child: const Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-        ),
-      ),
+      appBar: buildAppBar(context),
       body: const HomeViewBody(),
     );
   }
