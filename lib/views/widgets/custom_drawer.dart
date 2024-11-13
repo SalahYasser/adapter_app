@@ -16,15 +16,17 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Drawer(
+      elevation: 0,
       backgroundColor: Color(0xffDBDBDB),
       child: Column(
         children: [
           DrawerHeader(
             child: Icon(
               FontAwesomeIcons.solidHeart,
-              size: 48,
+              size: 56,
             ),
           ),
+          SizedBox(height: 16),
           CustomDrawerItemListView(items: items),
         ],
       ),

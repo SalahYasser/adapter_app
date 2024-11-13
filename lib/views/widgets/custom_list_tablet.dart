@@ -8,7 +8,7 @@ class CustomListTablet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: SizedBox(
-        height: 100,
+        height: 160,
         child: ListView.builder(
           itemCount: 15,
           scrollDirection: Axis.horizontal,
